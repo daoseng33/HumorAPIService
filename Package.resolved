@@ -1,5 +1,5 @@
 {
-  "originHash" : "bccd4fe24e40fea500c5d59323f595cb2d4ea5461771425e6fea1bfd0c87e6a5",
+  "originHash" : "02ab136893a478771613376e4f4eadc8d6d78ab5cc6ca2b9495240031877f9aa",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -13,7 +13,7 @@
     {
       "identity" : "humordatamodel",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:daoseng33/HumorDataModel.git",
+      "location" : "https://github.com/daoseng33/HumorDataModel.git",
       "state" : {
         "branch" : "main",
         "revision" : "b37f900e42b7c563233d1040b6783fc41f638bba"

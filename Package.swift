@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0")),
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0")),
-        .package(url: "git@github.com:daoseng33/HumorDataModel.git", branch: "main")
+        .package(url: "https://github.com/daoseng33/HumorDataModel.git", branch: "main")
     ],
     targets: [
         .target(
