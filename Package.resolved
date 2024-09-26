@@ -1,5 +1,5 @@
 {
-  "originHash" : "d631ef01ddf3eba464671b09ee9231ec5c777b2f431a06d5bc2faeaa8da1bb7a",
+  "originHash" : "bccd4fe24e40fea500c5d59323f595cb2d4ea5461771425e6fea1bfd0c87e6a5",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -16,7 +16,7 @@
       "location" : "git@github.com:daoseng33/HumorDataModel.git",
       "state" : {
         "branch" : "main",
-        "revision" : "b69910a6ceeccdcc94504b5f1a8bc6a6c189c904"
+        "revision" : "b37f900e42b7c563233d1040b6783fc41f638bba"
       }
     },
     {
