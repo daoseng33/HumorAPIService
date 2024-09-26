@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class APIConfiguration {
-    static let shared = APIConfiguration()
+public final class APIConfiguration {
+    public static let shared = APIConfiguration()
     private init() {}
     
-    var APIKey: String = ""
+    public var APIKey: String = ""
 }
