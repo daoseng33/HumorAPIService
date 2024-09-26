@@ -9,7 +9,7 @@ import Testing
 import RxBlocking
 import Foundation
 @testable import HumorAPIService
-struct GIFsAPITests {
+struct GIFsAPITests: @unchecked Sendable {
     let sut: GIFsAPIServiceProtocol!
     
     init() async throws {

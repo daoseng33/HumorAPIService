@@ -8,7 +8,7 @@
 import Testing
 import RxBlocking
 @testable import HumorAPIService
-struct JokeAPITests {
+struct JokeAPITests: @unchecked Sendable {
     var sut: JokeAPIServiceProtocol!
     
     init() async throws {

@@ -9,7 +9,7 @@ import Testing
 import Moya
 import RxBlocking
 @testable import HumorAPIService
-struct MemeAPITests {
+struct MemeAPITests: @unchecked Sendable {
     var sut: MemeAPIService!
     
     init() async throws {
