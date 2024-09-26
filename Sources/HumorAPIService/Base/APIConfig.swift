@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class APIConfiguration {
+public final class APIConfiguration: @unchecked Sendable {
     public static let shared = APIConfiguration()
     private init() {}
     

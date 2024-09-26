@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import Moya
 
-public class APIErrorHandleManager {
+public class APIErrorHandleManager: @unchecked Sendable {
     public static let shared = APIErrorHandleManager()
     
     public let httpErrorHandler = PublishSubject<Int>()
