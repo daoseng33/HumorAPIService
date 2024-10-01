@@ -15,7 +15,7 @@ extension MemeTargetType {
         var urlComponents = URLComponents(string: "https://api.humorapi.com")!
         
         let queryItems = [
-            URLQueryItem(name: "api-key", value: APIConfiguration.shared.APIKey)
+            URLQueryItem(name: "api-key", value: APIConfiguration.apiKey)
         ]
         urlComponents.queryItems = queryItems
         
