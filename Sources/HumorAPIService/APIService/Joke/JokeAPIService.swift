@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import HumorDataModel
 import Moya
 
 public struct JokeAPIService: JokeAPIServiceProtocol {

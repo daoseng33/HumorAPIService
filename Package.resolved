@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "HumorDataModel",
-        "repositoryURL": "https://github.com/daoseng33/HumorDataModel.git",
-        "state": {
-          "branch": "main",
-          "revision": "be49ce82f6b6338c9e278bb8ef44221a0552c96c",
-          "version": null
-        }
-      },
-      {
         "package": "Moya",
         "repositoryURL": "https://github.com/Moya/Moya.git",
         "state": {

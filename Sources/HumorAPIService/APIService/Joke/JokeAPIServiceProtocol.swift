@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import HumorDataModel
 
 public enum JokeAPIResponse<RandomJoke, MemeError> {
     case success(RandomJoke)

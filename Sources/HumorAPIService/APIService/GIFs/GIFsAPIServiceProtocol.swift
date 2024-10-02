@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import HumorDataModel
 import RxSwift
 
 public enum GIFAPIResponse<GIFs, MemeError> {

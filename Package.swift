@@ -16,14 +16,14 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0")),
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0")),
-        .package(url: "https://github.com/daoseng33/HumorDataModel.git", branch: "main")
+        .package(url: "https://github.com/realm/realm-swift.git", .upToNextMajor(from: "10.0.0")),
     ],
     targets: [
         .target(
             name: "HumorAPIService",
             dependencies: [
                 .product(name: "RxMoya", package: "Moya"),
-                "HumorDataModel"
+                .product(name: "RealmSwift", package: "realm-swift"),
             ],
             resources: [.process("SampleData")]
         ),
