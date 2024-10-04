@@ -17,12 +17,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Check Swift version
+        run: swift --version
+
       - name: Set Swift tools version
-        run: swift package tools-version --set-current
+        run: swift package tools-version --set 5.5
 
       - name: Build
         run: swift build -v
 
       - name: Run tests
         run: swift test -v
-
