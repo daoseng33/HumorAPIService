@@ -8,19 +8,10 @@
 import Foundation
 
 public enum APIConfiguration {
-    private static let lock = NSLock()
-    nonisolated(unsafe) private static var _apiKey: String = ""
+    public static var apiKey: String = ""
     
-    public static var apiKey: String {
-        get {
-            lock.lock()
-            defer { lock.unlock() }
-            return _apiKey
-        }
-        set {
-            lock.lock()
-            defer { lock.unlock() }
-            _apiKey = newValue
-        }
-    }
+    /// When useMockData is set to true, all API responses will only use mock data.
+    /// This setting is only applicable for development or Continuous Integration (CI) environments.
+    /// In production environments, ensure this value is set to false to use real API data.
+    public static var useMockData: Bool = false
 }

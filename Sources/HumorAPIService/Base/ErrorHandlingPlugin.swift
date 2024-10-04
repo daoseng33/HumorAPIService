@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-class ErrorHandlingPlugin: PluginType {
+final class ErrorHandlingPlugin: PluginType {
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         switch result {
         case .success(let response):
