@@ -22,6 +22,7 @@ struct MemeAPITests: @unchecked Sendable {
         case .success(let random):
             assert(random.id == 831819)
             assert(random.type == "image/png")
+            assert(random.mediaType == .image)
             
         case .failure(_):
             break
@@ -35,6 +36,7 @@ struct MemeAPITests: @unchecked Sendable {
         case .success(let random):
             assert(random.id == 12142)
             assert(random.type == "video/mp4")
+            assert(random.mediaType == .video)
             
         case .failure(_):
             break

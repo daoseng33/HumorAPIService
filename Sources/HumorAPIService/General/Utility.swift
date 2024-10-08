@@ -15,4 +15,16 @@ public struct Utility {
         }
         return data
     }
+    
+    /// type string example: "video/mp4", "image/jpeg"
+    static func getMediaType(with typeString: String) -> MemeMediaType {
+        // get "video" or "image"
+        let components = typeString.components(separatedBy: "/")
+        guard let firstPart = components.first,
+                let type = MemeMediaType(rawValue: firstPart) else {
+            return .image
+        }
+        
+        return type
+    }
 }

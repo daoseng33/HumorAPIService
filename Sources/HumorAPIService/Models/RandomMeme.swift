@@ -16,6 +16,9 @@ public class RandomMeme: Object, Decodable, TimeSensitive, Favoritable {
     }
     @Persisted public var urlString: String
     @Persisted public var type: String
+    public var mediaType: MemeMediaType {
+        return Utility.getMediaType(with: type)
+    }
     @Persisted public var createdAt: Date = Date()
     @Persisted public var isFavorite: Bool = false
     
