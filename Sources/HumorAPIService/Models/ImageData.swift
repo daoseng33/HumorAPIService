@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-public class ImageData: Object, Decodable {
+public class ImageData: Object, Decodable, TimeSensitive, Favoritable {
     @Persisted(primaryKey: true) public var urlString: String
     public var url: URL? {
         return URL(string: urlString)
@@ -16,6 +16,7 @@ public class ImageData: Object, Decodable {
     @Persisted public var width: Int
     @Persisted public var height: Int
     @Persisted public var createdAt: Date = Date()
+    @Persisted public var isFavorite: Bool = false
     
     enum CodingKeys: CodingKey {
         case url

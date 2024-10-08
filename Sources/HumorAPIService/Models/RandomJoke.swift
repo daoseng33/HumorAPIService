@@ -8,10 +8,11 @@
 import Foundation
 import RealmSwift
 
-public class RandomJoke: Object, Decodable {
+public class RandomJoke: Object, Decodable, TimeSensitive, Favoritable {
     @Persisted(primaryKey: true) public var id: Int
     @Persisted public var joke: String
     @Persisted public var createdAt: Date = Date()
+    @Persisted public var isFavorite: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id, joke

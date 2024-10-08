@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-public class RandomMeme: Object, Decodable {
+public class RandomMeme: Object, Decodable, TimeSensitive, Favoritable {
     @Persisted(primaryKey: true) public var id: Int
     @Persisted public var memeDescription: String
     public var url: URL? {
@@ -17,6 +17,7 @@ public class RandomMeme: Object, Decodable {
     @Persisted public var urlString: String
     @Persisted public var type: String
     @Persisted public var createdAt: Date = Date()
+    @Persisted public var isFavorite: Bool = false
     
     required public init(from decoder: Decoder) throws {
         super.init()
