@@ -32,6 +32,15 @@ public class ImageData: Object, Decodable, TimeSensitive, Favoritable {
         height = try container.decode(Int.self, forKey: .height)
     }
     
+    public convenience init(urlString: String, width: Int = 100, height: Int = 100, createdAt: Date = Date(), isFavorite: Bool = false) {
+        self.init()
+        self.urlString = urlString
+        self.width = width
+        self.height = height
+        self.createdAt = createdAt
+        self.isFavorite = isFavorite
+    }
+    
     public override init() {
         super.init()
     }
