@@ -22,6 +22,10 @@ public class RandomMeme: Object, Decodable, TimeSensitive, Favoritable {
     @Persisted public var createdAt: Date = Date()
     @Persisted public var isFavorite: Bool = false
     
+    private enum CodingKeys: String, CodingKey {
+        case id, description, url, type
+    }
+    
     required public init(from decoder: Decoder) throws {
         super.init()
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -34,11 +38,17 @@ public class RandomMeme: Object, Decodable, TimeSensitive, Favoritable {
         self.urlString = urlString
     }
     
+    public convenience init(id: Int, memeDescription: String, urlString: String, type: String, createdAt: Date = Date(), isFavorite: Bool = false) {
+        self.init()
+        self.id = id
+        self.memeDescription = memeDescription
+        self.urlString = urlString
+        self.type = type
+        self.createdAt = createdAt
+        self.isFavorite = isFavorite
+    }
+    
     public override init() {
         super.init()
-    }
-
-    private enum CodingKeys: String, CodingKey {
-        case id, description, url, type
     }
 }

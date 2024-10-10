@@ -25,6 +25,14 @@ public class RandomJoke: Object, Decodable, TimeSensitive, Favoritable {
         joke = try container.decode(String.self, forKey: .joke)
     }
     
+    public convenience init(id: Int, joke: String, createdAt: Date = Date(), isFavorite: Bool = false) {
+        self.init()
+        self.id = id
+        self.joke = joke
+        self.createdAt = createdAt
+        self.isFavorite = isFavorite
+    }
+    
     public override init() {
         super.init()
     }
