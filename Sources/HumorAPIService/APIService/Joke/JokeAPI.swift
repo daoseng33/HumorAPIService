@@ -41,6 +41,8 @@ public enum JokeCategory: String, CaseIterable {
 
 public enum JokeAPI {
     case randomJoke(tags: [JokeCategory], excludeTags: [JokeCategory], minRating: Int, maxLength: Int)
+    case upVoteJoke(id: Int)
+    case downVoteJoke(id: Int)
 }
 
 extension JokeAPI: MemeTargetType {
@@ -48,6 +50,12 @@ extension JokeAPI: MemeTargetType {
         switch self {
         case .randomJoke:
             return "jokes/random"
+            
+        case .upVoteJoke(id: let id):
+            return "/jokes/\(id)/upvote"
+            
+        case .downVoteJoke(id: let id):
+            return "/jokes/\(id)/downvote"
         }
     }
     
@@ -55,6 +63,9 @@ extension JokeAPI: MemeTargetType {
         switch self {
         case .randomJoke:
             return .get
+            
+        case .upVoteJoke, .downVoteJoke:
+            return .post
         }
     }
     
@@ -72,12 +83,15 @@ extension JokeAPI: MemeTargetType {
                 "min-rating": minRating,
                 "max-length": maxLength
             ], encoding: URLEncoding.queryString)
+            
+        case .upVoteJoke, .downVoteJoke:
+            return .requestPlain
         }
     }
     
     public var headers: [String : String]? {
         switch self {
-        case .randomJoke:
+        case .randomJoke, .upVoteJoke, .downVoteJoke:
             return nil
         }
     }
@@ -91,6 +105,11 @@ extension JokeAPI: MemeTargetType {
                 return Utility.loadJSON(filename: "random_joke")
             }
             
+        case .upVoteJoke:
+            return Utility.loadJSON(filename: "vote_upvote")
+            
+        case .downVoteJoke:
+            return Utility.loadJSON(filename: "vote_downvote")
         }
     }
 }

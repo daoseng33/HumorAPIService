@@ -34,4 +34,16 @@ public struct MemeAPIService: MemeAPIServiceProtocol {
                 }
             })
     }
+    
+    public func fetchUpVoteMeme(with id: Int) -> Single<UpVote> {
+        return provider.rx
+            .request(.upVoteMeme(id: id))
+            .map(UpVote.self, using: JSONDecoder.default)
+    }
+    
+    public func fetchDownVoteMeme(with id: Int) -> Single<DownVote> {
+        return provider.rx
+            .request(.downVoteMeme(id: id))
+            .map(DownVote.self, using: JSONDecoder.default)
+    }
 }

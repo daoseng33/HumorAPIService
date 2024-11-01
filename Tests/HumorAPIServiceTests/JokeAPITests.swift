@@ -40,4 +40,15 @@ struct JokeAPITests: @unchecked Sendable {
         }
     }
 
+    @Test func testFetchUpVote() async throws {
+        let result = try sut.fetchUpVoteJoke(with: 1).toBlocking().single()
+        
+        assert(result.message == "Thanks for submitting an upvote.")
+    }
+    
+    @Test func testFetchDownVote() async throws {
+        let result = try sut.fetchDownVoteJoke(with: 1).toBlocking().single()
+        
+        assert(result.message == "Thanks for submitting a downvote.")
+    }
 }

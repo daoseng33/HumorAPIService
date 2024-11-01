@@ -34,4 +34,15 @@ public struct JokeAPIService: JokeAPIServiceProtocol {
             })
     }
     
+    public func fetchUpVoteJoke(with id: Int) -> Single<UpVote> {
+        return provider.rx
+            .request(.upVoteJoke(id: id))
+            .map(UpVote.self, using: JSONDecoder.default)
+    }
+    
+    public func fetchDownVoteJoke(with id: Int) -> Single<DownVote> {
+        return provider.rx
+            .request(.downVoteJoke(id: id))
+            .map(DownVote.self, using: JSONDecoder.default)
+    }
 }

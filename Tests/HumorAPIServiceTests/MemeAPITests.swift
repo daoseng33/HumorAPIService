@@ -54,4 +54,16 @@ struct MemeAPITests: @unchecked Sendable {
             assert(error.status == "failure")
         }
     }
+    
+    @Test func testFetchUpVote() async throws {
+        let result = try sut.fetchUpVoteMeme(with: 1).toBlocking().single()
+        
+        assert(result.message == "Thanks for submitting an upvote.")
+    }
+    
+    @Test func testFetchDownVote() async throws {
+        let result = try sut.fetchDownVoteMeme(with: 1).toBlocking().single()
+        
+        assert(result.message == "Thanks for submitting a downvote.")
+    }
 }

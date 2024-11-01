@@ -15,6 +15,8 @@ public enum MemeMediaType: String, CaseIterable {
 
 public enum MemeAPI {
     case randomMeme(keyword: String, mediaType: MemeMediaType, minRating: Int)
+    case upVoteMeme(id: Int)
+    case downVoteMeme(id: Int)
 }
 
 extension MemeAPI: MemeTargetType {
@@ -22,6 +24,12 @@ extension MemeAPI: MemeTargetType {
         switch self {
         case .randomMeme:
             return "/memes/random"
+            
+        case .upVoteMeme(id: let id):
+            return "/memes/\(id)/upvote"
+            
+        case .downVoteMeme(id: let id):
+            return "/memes/\(id)/downvote"
         }
     }
     
@@ -29,6 +37,9 @@ extension MemeAPI: MemeTargetType {
         switch self {
         case .randomMeme:
             return .get
+            
+        case .upVoteMeme, .downVoteMeme:
+            return .post
         }
     }
     
@@ -40,12 +51,15 @@ extension MemeAPI: MemeTargetType {
                 "media-type": mediaType.rawValue,
                 "min-rating": minRating
             ], encoding: URLEncoding.queryString)
+            
+        case .upVoteMeme, .downVoteMeme:
+            return .requestPlain
         }
     }
     
     public var headers: [String : String]? {
         switch self {
-        case .randomMeme:
+        case .randomMeme, .upVoteMeme, .downVoteMeme:
             return nil
         }
     }
@@ -69,6 +83,12 @@ extension MemeAPI: MemeTargetType {
                     return Utility.loadJSON(filename: "memes_random_video")
                 }
             }
+            
+        case .upVoteMeme:
+            return Utility.loadJSON(filename: "vote_upvote")
+            
+        case .downVoteMeme:
+            return Utility.loadJSON(filename: "vote_downvote")
         }
     }
 }
